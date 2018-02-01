@@ -1,32 +1,29 @@
-pragma solidity ^ 0.4.17;
+pragma solidity ^0.4.17;
 
-contract TodoList {
+import "./Ownable.sol";
+
+contract TodoList is Ownable {
 
     event NewTodo(uint todoId, string value);
     event DeleteTodo(uint todoId, string value);
 
-    mapping(uint => address) public todoOwner;
+    //every user has an array of todo items
+    mapping(uint => address) todoOwner;
+    //every address has a certain number of todos on it
     mapping(address => uint) ownerTodoCount;
 
     TodoItem[] public todoItems;
 
     struct TodoItem {
         string value;
-        //TODO submit ether to a TodoItem
         bool active;
     }
 
-    function createTodo(string _value) internal {
+    function createTodo(string _value) internal returns(uint) {
         uint id = todoItems.push(TodoItem(_value, true)) - 1;
         todoOwner[id] = msg.sender;
         ownerTodoCount[msg.sender]++;
         NewTodo(id, _value);
+        return id;
     }
-    
-    //function deleteTodo;
-    
-    //function getAllTodos
-    
-    //function getTodoById
-    
 }

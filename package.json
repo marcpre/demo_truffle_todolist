@@ -20,5 +20,8 @@
   "devDependencies": {
     "ganache-cli": "^6.0.3",
     "truffle": "^4.0.5"
+  },
+  "dependencies": {
+    "zeppelin-solidity": "1.6.0"
   }
 }
