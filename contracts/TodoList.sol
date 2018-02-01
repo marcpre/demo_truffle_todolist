@@ -19,7 +19,7 @@ contract TodoList is Ownable {
         bool active;
     }
 
-    function createTodo(string _value) internal returns(uint) {
+    function createTodo(string _value) public returns(uint) {
         uint id = todoItems.push(TodoItem(_value, true)) - 1;
         todoOwner[id] = msg.sender;
         ownerTodoCount[msg.sender]++;
