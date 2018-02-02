@@ -9,22 +9,31 @@ contract TestTodoList {
 
     // Testing the adopt() function
     function testUserCanAddTodo() public {
-      uint returnedTodo = todolist.createTodo("test");
+      bool returnedTodo = todolist.createTodo("test");
 
-      uint expectedValue = 1;
+      bool expectedValue = true;
     
       Assert.equal(returnedTodo, expectedValue, "Todo should be added to the list and return 1.");
     }
 
-/*    
-    // Testing retrieval of a single todo
-    function testGetTodoById() public {
-
-    }
-
     // Testing retrieval of all todos
-    function testGetTodoList() public {
+/*    function testGetAllTodos() public {
+      bool returnedTodo = todolist.getTodoItems();
+      
+    }
+*/
+  
+    // Testing retrieval of all todos
+    function testdeleteTodoItem() public {
+      todolist.createTodo("test");
+      todolist.createTodo("test");
+
+      bool returnedTodo = todolist.deleteTodoItem(1);
+
+      bool expectedValue = true;
+    
+      Assert.equal(returnedTodo, expectedValue, "Todo was deleted.");
 
     }
-*/    
+      
 }
