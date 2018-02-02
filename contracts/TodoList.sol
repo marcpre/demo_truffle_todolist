@@ -18,7 +18,13 @@ contract TodoList {
         return true;
     }
     
-    function getTodoItem() returns (bytes32[], bool[]){
+    // Retrieving the todos
+/*
+    function getTodoItems() public view returns(bytes32[], bool[]){
+        return todoItems;
+    }
+*/    
+    function getTodoItems() returns (bytes32[], bool[]){
         uint length = todoItems.length;
         
         //declare two arrays
