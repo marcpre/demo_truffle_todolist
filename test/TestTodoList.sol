@@ -9,13 +9,14 @@ contract TestTodoList {
 
     // Testing the adopt() function
     function testUserCanAddTodo() public {
-      uint returnedTodo = addTodoItem("test");
+      uint returnedTodo = todolist.createTodo("test");
 
-      uint expectedValue = true;
+      uint expectedValue = 1;
     
-      Assert.equal(returnedTodo, expectedValue, "Todo should be added to the list.(return true)");
+      Assert.equal(returnedTodo, expectedValue, "Todo should be added to the list and return 1.");
     }
-    
+
+/*    
     // Testing retrieval of a single todo
     function testGetTodoById() public {
 
@@ -25,4 +26,5 @@ contract TestTodoList {
     function testGetTodoList() public {
 
     }
+*/    
 }
